@@ -1,3 +1,3 @@
 # ComposeMall
-Jetpack Compose云商城App
-- 主要使用MVVM+Retrofit+Room+Hilt
+
+Jetpack Compose + MVVM + Retrofit + Hilt 打造一款云商城APP
