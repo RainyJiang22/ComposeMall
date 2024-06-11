@@ -11,10 +11,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.simple.mall.R
 import com.simple.mall.ui.theme.ComposeMallTheme
+import com.simple.mall.util.SuperDateUtil
 
 /**
  * @author jiangshiyu
@@ -53,6 +57,14 @@ fun SplashScreen() {
         )
         //endregion
 
+        //版权文本
+        Text(text = stringResource(id = R.string.copyright,SuperDateUtil.currentYear()),
+            style = TextStyle(
+                fontSize = 12.sp,
+                color = Color.Gray
+            ),
+            modifier = Modifier.padding(bottom = 20.dp)
+                .align(Alignment.BottomCenter))
     }
 }
 
