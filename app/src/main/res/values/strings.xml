@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">ComposeMall</string>
     <!--版权文本-->
-    <string name="copyright" translatable="false">Copyright © %1$d Ixuea. All Rights Reserved</string>
+    <string name="copyright" translatable="false">Copyright © %1$d Rainy. All Rights Reserved</string>
 </resources>

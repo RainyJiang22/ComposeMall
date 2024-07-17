@@ -1,4 +1,4 @@
-package com.simple.mall.ui.theme
+package com.simple.mall.core.design.theme
 
 import android.app.Activity
 import android.os.Build

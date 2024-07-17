@@ -1,5 +1,8 @@
 package com.simple.mall.feature.splash
 
+import android.view.animation.OvershootInterpolator
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -7,8 +10,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -17,7 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.simple.mall.R
-import com.simple.mall.ui.theme.ComposeMallTheme
+import com.simple.mall.core.design.theme.ComposeMallTheme
 import com.simple.mall.util.SuperDateUtil
 
 /**
@@ -33,6 +39,23 @@ fun SplashRoute() {
 
 @Composable
 fun SplashScreen() {
+
+
+    //缩放动画
+    val scale = remember { Animatable(0f) }
+
+    LaunchedEffect(key1 = true) {
+        scale.animateTo(
+            targetValue = 1f,
+            animationSpec = tween(
+                durationMillis = 2000,
+                easing = {
+                    OvershootInterpolator(2f).getInterpolation(it)
+                }
+            )
+        )
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -45,6 +68,7 @@ fun SplashScreen() {
             modifier = Modifier
                 .padding(top = 150.dp)
                 .align(Alignment.TopCenter)
+                .scale(scale.value)
         )
 
         //region 启动界面logo
@@ -63,7 +87,8 @@ fun SplashScreen() {
                 fontSize = 12.sp,
                 color = Color.Gray
             ),
-            modifier = Modifier.padding(bottom = 20.dp)
+            modifier = Modifier
+                .padding(bottom = 20.dp)
                 .align(Alignment.BottomCenter))
     }
 }

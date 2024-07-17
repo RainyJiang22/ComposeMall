@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.simple.mall.feature.splash.SplashRoute
-import com.simple.mall.ui.theme.ComposeMallTheme
+import com.simple.mall.core.design.theme.ComposeMallTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
